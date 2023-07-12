@@ -4,7 +4,7 @@
 
 const assert = require('assert');
 
-const { getEmitter, isStar } = require('./emitter');
+const { getEmitter, isStar } = require('./emitter_new');
 
 const students = {
     Sam: {

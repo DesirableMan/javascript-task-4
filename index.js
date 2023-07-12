@@ -1,6 +1,6 @@
 'use strict';
 
-const { getEmitter, isStar } = require('./emitter');
+const { getEmitter, isStar } = require('./emitter_new');
 
 let students = {
     Sam: {
@@ -80,6 +80,7 @@ lecturer
 // Начинаем лекцию
 lecturer.emit('begin');
 // Sam(110,50); Sally(110,60); Bill(100,55); Sharon(130,40)
+console.log(students);
 
 lecturer
     .emit('slide.text')
@@ -87,6 +88,7 @@ lecturer
     .emit('slide.text')
     .emit('slide.funny');
 // Sam(75,79); Sally(95,118); Bill(65,63); Sharon(120,34)
+console.log(students);
 
 lecturer
     .off('slide.funny', students.Sharon)
@@ -94,6 +96,7 @@ lecturer
     .emit('slide.text')
     .emit('slide.funny');
 // Sam(50,90); Sally(85,155); Bill(40,62); Sharon(105,37)
+console.log(students);
 
 lecturer
     .off('slide', students.Bill)
@@ -103,6 +106,7 @@ lecturer
 
 lecturer.emit('end');
 // Sam(20,102); Sally(70,191); Bill(40,62); Sharon(90,40)
+console.log(students);
 
 if (isStar) {
     students = {
@@ -145,6 +149,7 @@ if (isStar) {
 
     lecturer.emit('begin');
     // Sam(110,50); Bill(100,55)
+    console.log(students);
 
     lecturer
         .emit('slide.text')
@@ -152,10 +157,12 @@ if (isStar) {
         .emit('slide.text')
         .emit('slide.funny');
     // Sam(95,61); Bill(65,63)
+    console.log(students);
 
     lecturer
         .emit('slide.text')
         .emit('slide.text')
         .emit('slide.funny');
     // Sam(80,70); Bill(70,53)
+    console.log(students);
 }
